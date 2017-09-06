@@ -1,7 +1,7 @@
 # Line Sweep algorithm
 
-input_*.txt  : STDIN input files <br />
-expected_*.txt : expected output <br />
+input_\*.txt  : STDIN input files <br />
+expected_\*.txt : expected output <br />
 
 Example execution : <br />
 ```
