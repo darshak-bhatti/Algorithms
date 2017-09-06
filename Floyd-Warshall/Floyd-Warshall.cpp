@@ -6,7 +6,6 @@
 #include <set>
 #include <sstream>
 #include <map>
-#include <limits>
 
 using namespace std;
 
@@ -52,7 +51,7 @@ int main() {
     //Initialise matrices
     for(i = 0; i<n; i++){
         for(j=0; j<n; j++){
-            adjMat[i][j] = INT_MAX; //30000 represents infinite edge value
+            adjMat[i][j] = 30000; //30000 represents infinite edge value
             kMat[i][j] = -99; //-99 represents no path from i to j
         }
     }
@@ -133,12 +132,13 @@ int main() {
     float sum=0;
     for(i=0; i<n; i++){
         for (j = 0; j<n; j++) {
-            if(adjMat[i][j]!=INT_MAX){
+            if(adjMat[i][j]!=30000){
                 sum++;
             }
         }
     }
     printf("%.2f\n", sum/n); //Print average
+
 
     //----Queries----------
     int ind1, ind2;
@@ -167,7 +167,7 @@ int main() {
 
         //Get shortest paths
         path.clear(); //clear path before finding path for the query
-        if(adjMat[ind1][ind2] != INT_MAX){ //INT_MAX represents infinite edge and hence no path from i to j
+        if(adjMat[ind1][ind2] != 30000){ //30000 represents infinite edge and hence no path from i to j
             get_path(&adjMat[0][0], &kMat[0][0], ind1,ind2); //Get path from ind1 (word 1) to ind2 (word 2)
 
             vector<int> final_path; //To store path without duplicate entries...just a detail
